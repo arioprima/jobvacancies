@@ -15,7 +15,7 @@
       "@api/*": ["src/api/*"],
       "@lib/*": ["src/lib/*"],
       "@store/*": ["src/store/*"],
-      "@router/*": ["src/router/*"],
+      "@router/*": ["src/routes/*"],
       "@services/*": ["src/services/*"],
       "@constants/*": ["src/constants/*"],
       "@types/*": ["src/types/*"]

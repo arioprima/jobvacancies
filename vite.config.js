@@ -21,7 +21,7 @@ export default defineConfig({
       '@api': resolve(__dirname, './src/api'),
       '@lib': resolve(__dirname, './src/lib'),
       '@store': resolve(__dirname, './src/store'),
-      '@router': resolve(__dirname, './src/router'),
+      '@router': resolve(__dirname, './src/routes'),
       '@services': resolve(__dirname, './src/services'),
       '@constants': resolve(__dirname, './src/constants'),
       '@types': resolve(__dirname, './src/types'),
