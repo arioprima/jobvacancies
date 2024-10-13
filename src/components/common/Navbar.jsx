@@ -90,12 +90,8 @@ const Navbar = () => {
                     </div>
                 ) : null}
             </div>
-
-
         </>
     )
 }
-
-
 
 export default Navbar;

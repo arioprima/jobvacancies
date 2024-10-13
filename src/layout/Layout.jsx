@@ -2,10 +2,11 @@ import Footer from "@components/common/Footer";
 import Navbar from "@components/common/Navbar";
 import LandingPage from "@pages/LandingPage";
 
+
 const Layout = () => {
     return (
         <section>
-            <header className="sticky top-0">
+            <header className="sticky top-0 z-50">
                 <Navbar />
             </header>
             <main>
