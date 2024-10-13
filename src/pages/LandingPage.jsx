@@ -1,18 +1,13 @@
 import HeroSection from "@components/landingPage/HeroSection";
-import PropTypes from 'prop-types';
 
-const LandingPage = ({ index }) => {
+const LandingPage = () => {
     return (
         <div>
             <section className="bg-primary h-screen">
-                <HeroSection index={index} />
+                <HeroSection />
             </section>
         </div>
     );
-};
-
-LandingPage.propTypes = {
-    index: PropTypes.bool,
 };
 
 

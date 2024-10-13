@@ -27,7 +27,7 @@ Control.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-const HeroSection = ({ index }) => {
+const HeroSection = () => {
     return (
         <div className="flex flex-col pt-16 px-4">
             <div className="flex flex-col gap-2 text-3xl font-semibold text-slate-700">
@@ -42,11 +42,11 @@ const HeroSection = ({ index }) => {
             </div >
             <form>
                 <div className="flex flex-col w-full gap-4 mt-10">
-                    <div className={`${index ? `relative -z-10` : "relative "}`}>
+                    <div className="relative">
                         <UilBriefcaseAlt color="#82FD6E" className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5" />
                         <input type="text" placeholder="Job title, Keyword..." className="w-full pl-12 py-3 text-sm bg-[#FFFFFF] focus:outline-none ring-transparent rounded-lg" />
                     </div>
-                    <div className={`${index ? `relative -z-10` : "relative "}`}>
+                    <div className="relative">
                         <Select
                             options={countryOptions}
                             placeholder="Select your location"
@@ -94,10 +94,5 @@ const HeroSection = ({ index }) => {
         </div >
     );
 };
-
-HeroSection.propTypes = {
-    index: PropTypes.bool,
-};
-
 
 export default HeroSection;

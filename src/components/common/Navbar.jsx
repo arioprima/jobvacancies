@@ -2,13 +2,11 @@ import { Link } from "react-router-dom";
 import Logo from "@images/logo.svg";
 import { FaArrowRight } from "react-icons/fa";
 import { useState } from "react";
-import PropTypes from 'prop-types';
 
-const Navbar = ({ showMenu }) => {
+const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
-        showMenu.onMenu();
         setIsMenuOpen(!isMenuOpen);
     };
 
@@ -95,11 +93,5 @@ const Navbar = ({ showMenu }) => {
         </>
     )
 }
-
-Navbar.propTypes = {
-    showMenu: PropTypes.object
-}
-
-
 
 export default Navbar;
