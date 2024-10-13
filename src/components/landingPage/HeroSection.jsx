@@ -36,7 +36,7 @@ const HeroSection = () => {
                     <p>Find a job that suits</p>
                     <p>your interest & skills.</p>
                 </div>
-                <div className="mt-8 text-lg break-words text-justify text-slate-500">
+                <div className="mt-8 text-lg w-[90%] break-words text-justify text-slate-500">
                     <p>
                         Find the ideal job for you by exploring the various job openings available
                         about the company understanding the work culture.
@@ -91,7 +91,7 @@ const HeroSection = () => {
                                 maxMenuHeight={150}
                             />
                         </div>
-                        <button className="btn btn-success w-full py-4 text-sm hover:bg-green-400">Search Jobs</button>
+                        <button className="btn btn-success w-full py-6 text-lg hover:bg-green-400">Search Jobs</button>
                     </div>
                 </form>
                 <div className="mt-4 text-sm text-slate-500">
@@ -101,7 +101,7 @@ const HeroSection = () => {
                 </div >
             </div>
             <div >
-                <img src={Illustration} alt="hero" className="w-full  my-10" />
+                <img src={Illustration} alt="hero" className="w-full  my-12" />
             </div>
         </div >
     );
