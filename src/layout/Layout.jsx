@@ -6,7 +6,7 @@ import LandingPage from "@pages/LandingPage";
 const Layout = () => {
     return (
         <section>
-            <header className="sticky top-0 z-50">
+            <header className="sticky top-0 z-50 lg:-z-0">
                 <Navbar />
             </header>
             <main>
