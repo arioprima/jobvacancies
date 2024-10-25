@@ -68,8 +68,8 @@ const Navbar = () => {
             </nav >
             <div
                 className={`${isMenuOpen
-                    ? "absolute bg-primary  w-full opacity-100 transform scale-y-100 transition-all duration-1000 ease-in-out origin-top lg:hidden"
-                    : "absolute w-full opacity-0 transform scale-y-0 h-64 transition-all duration-1000 ease-in-out origin-top lg:hidden"
+                    ? "absolute bg-primary  w-full opacity-100 transform scale-y-100 transition-all duration-1000 ease-in-out origin-top shadow-sm shadow-slate-600 lg:hidden"
+                    : "absolute w-full opacity-0 transform scale-y-0 h-64 transition-all duration-1000 ease-in-out origin-top shadow-sm shadow-slate-700 lg:hidden"
                     }`}
             >
                 {isMenuOpen ? (
