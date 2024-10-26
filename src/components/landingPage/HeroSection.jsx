@@ -1,8 +1,10 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { UilBriefcaseAlt, UilMapMarker } from '@iconscout/react-unicons'
 import Select, { components } from 'react-select';
 import Illustration from '@images/Illustration.svg';
-import PropTypes from 'prop-types';
+import Carousel from './Carousel';
+import Companies from '@constants/companies';
 
 
 const countryOptions = [
@@ -16,7 +18,6 @@ const countryOptions = [
     { value: 'jp', label: 'Japan' },
 ];
 
-
 const Control = (props) => {
     return (
         <components.Control {...props}>
@@ -26,9 +27,6 @@ const Control = (props) => {
     );
 };
 
-Control.propTypes = {
-    children: PropTypes.node.isRequired,
-};
 
 const HeroSection = () => {
     const [maxMenuHeight, setMaxMenuHeight] = useState(150);
@@ -47,6 +45,7 @@ const HeroSection = () => {
 
         return () => window.removeEventListener('resize', handleResize);
     }, []);
+
     return (
         <div >
             <div className="flex flex-col pt-16 px-4 lg:flex-row lg:pt-5 lg:px-16">
@@ -124,11 +123,18 @@ const HeroSection = () => {
                     <img src={Illustration} alt="hero" className="w-full my-12 lg:w-[80%] text-end lg:my-0" loading="lazy" />
                 </div>
             </div >
-            <div>
-                h1
+            <div className=''>
+                <div>
+                    <h1 className="text-xl font-semibold text-center my-7 px-8">Work With Exciting  <span className="text-green-400 drop-shadow-md  font-bold ">100+</span> Companies In The World  </h1>
+                </div>
+                <Carousel companies={Companies} />
             </div>
         </div>
     );
+};
+
+Control.propTypes = {
+    children: PropTypes.node.isRequired,
 };
 
 export default HeroSection;
