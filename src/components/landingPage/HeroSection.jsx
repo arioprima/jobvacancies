@@ -123,9 +123,23 @@ const HeroSection = () => {
                     <img src={Illustration} alt="hero" className="w-full my-12 lg:w-[80%] text-end lg:my-0" loading="lazy" />
                 </div>
             </div >
-            <div className=''>
+            <div className='lg:mt-20'>
                 <div>
                     <h1 className="text-xl font-semibold text-center my-7 px-8">Work With Exciting  <span className="text-green-400 drop-shadow-md  font-bold ">100+</span> Companies In The World  </h1>
+                </div>
+                <div className='hidden lg:flex flex-row w-full justify-center'>
+                    {Companies.map((company, index) => (
+                        <div key={company.name} className="flex flex-col pt-4 hover:text-green-400 text-md w-[10%]">
+                            <a key={index} href={company.link} target="_blank" rel="noopener noreferrer" >
+                                <img
+                                    src={company.img}
+                                    alt={company.name}
+                                    className="w-11 h-11 mx-auto object-cover rounded-full transition-transform duration-300 ease-in-out hover:shadow-md hover:shadow-green-400 hover:scale-110"
+                                />
+                                <h3 className="mt-4 text-center font-medium">{company.name}</h3>
+                            </a>
+                        </div>
+                    ))}
                 </div>
                 <Carousel companies={Companies} />
             </div>
