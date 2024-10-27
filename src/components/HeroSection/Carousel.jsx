@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import PropTypes from 'prop-types';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 
 const Carousel = ({ companies }) => {
     const settings = {
@@ -13,17 +13,20 @@ const Carousel = ({ companies }) => {
         autoplay: true,
         speed: 2000,
         autoplaySpeed: 3000,
-        cssEase: "ease-in-out",
+        cssEase: 'ease-in-out',
         arrows: false,
         draggable: true,
     };
 
     return (
-        <div className='w-full m-auto" lg:hidden'>
+        <div className="w-full m-auto pb-7 lg:hidden">
             <Slider {...settings}>
                 {companies.map((item) => (
-                    <div key={item.name} className="flex flex-col pt-4 hover:text-green-400 text-lg hover:text-xl">
-                        <a href={item.link} target="_blank" rel="noopener noreferrer" >
+                    <div
+                        key={item.name}
+                        className="flex flex-col pt-4 hover:text-green-400 text-lg hover:text-xl"
+                    >
+                        <a href={item.link} target="_blank" rel="noopener noreferrer">
                             <img
                                 src={item.img}
                                 alt={item.name}
@@ -44,7 +47,7 @@ Carousel.propTypes = {
             name: PropTypes.string.isRequired,
             img: PropTypes.string.isRequired,
             link: PropTypes.string.isRequired,
-        })
+        }),
     ).isRequired,
 };
 

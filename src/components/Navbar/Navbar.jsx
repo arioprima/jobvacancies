@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Logo from "@images/logo.svg";
 import { FaArrowRight } from "react-icons/fa";
 import { useState } from "react";
+import Button from "@components/common/Button";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,7 +36,7 @@ const Navbar = () => {
                 }
                 <div className={`${isMenuOpen ? "hidden" : "lg:flex items-center gap-5 lg:justify-end lg:w-full hidden"}`}>
                     <p className="py-[0.5rem] ease-linear duration-150 hover:capitalize hover:text-green-400 hover:underline text-nowrap hover:cursor-pointer">Login</p>
-                    <button className="btn btn-success btn-sm px-4 hover:scale-105 hover:bg-green-400">Sign Up</button>
+                    <Button className="btn btn-success btn-sm px-4 hover:scale-105 hover:bg-green-400">Sign Up</Button>
                     <div className="flex gap-3 items-center hover:text-green-400">
                         <p className="py-[0.5rem] ease-linear duration-150 hover:capitalize hover:underline text-nowrap hover:cursor-pointer">For Employers</p>
                         <FaArrowRight className="hover:text-green-400" />
@@ -81,7 +82,7 @@ const Navbar = () => {
                         ))}
                         <div className="px-[1.1rem] flex flex-col gap-5 mt-2">
                             <p className="ease-linear duration-150 hover:capitalize hover:text-green-400 hover:underline text-nowrap hover:cursor-pointer">Login</p>
-                            <button className="btn btn-success btn-sm px-4 hover:scale-105 hover:bg-green-400">Sign Up</button>
+                            <Button className="btn btn-success btn-sm px-4 hover:scale-105 hover:bg-green-400">Sign Up</Button>
                             <div className="flex flex-row items-start gap-2 hover:text-green-400 ">
                                 <p className="ease-linear duration-150 hover:capitalize hover:underline text-nowrap hover:cursor-pointer">For Employers</p>
                                 <FaArrowRight className="hover:text-green-400 mt-1 mb-4" />
