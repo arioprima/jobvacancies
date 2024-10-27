@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { UilBriefcaseAlt, UilMapMarker } from '@iconscout/react-unicons';
 import Select, { components } from 'react-select';
 import Illustration from '@images/Illustration.svg';
@@ -29,6 +29,8 @@ const Control = (props) => {
 
 const HeroSection = () => {
     const [maxMenuHeight, setMaxMenuHeight] = useState(150);
+    const [menuPlacement, setMenuPlacement] = useState('bottom');
+    const selectWrapperRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
@@ -44,6 +46,17 @@ const HeroSection = () => {
 
         return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    const handleMenuOpen = () => {
+        const selectRect = selectWrapperRef.current.getBoundingClientRect();
+        const spaceAbove = selectRect.top;
+        const spaceBelow = window.innerHeight - selectRect.bottom;
+        if (spaceAbove > spaceBelow) {
+            setMenuPlacement('top');
+        } else {
+            setMenuPlacement('bottom');
+        }
+    };
 
     return (
         <div>
@@ -64,7 +77,7 @@ const HeroSection = () => {
                             <div className="relative">
                                 <UilBriefcaseAlt
                                     color="#82FD6E"
-                                    className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5  lg:top-[48%]"
+                                    className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 lg:top-[48%]"
                                 />
                                 <input
                                     type="text"
@@ -72,7 +85,7 @@ const HeroSection = () => {
                                     className="w-full pl-12 py-5 text-sm bg-[#FFFFFF] focus:outline-none ring-transparent rounded-lg lg:py-[0.65rem] lg:px-12"
                                 />
                             </div>
-                            <div className="relative lg:border-l-2 lg:border-slate-200">
+                            <div className="relative lg:border-l-2 lg:border-slate-200" ref={selectWrapperRef}>
                                 <Select
                                     options={countryOptions}
                                     placeholder="Select your location"
@@ -115,6 +128,8 @@ const HeroSection = () => {
                                     components={{ Control }}
                                     isSearchable={true}
                                     maxMenuHeight={maxMenuHeight}
+                                    menuPlacement={menuPlacement}
+                                    onMenuOpen={handleMenuOpen}
                                 />
                             </div>
                             <Button className="btn btn-success w-full py-6 text-lg hover:bg-green-400 lg:text-[0.75rem] lg:text-nowrap lg:py-4 lg:w-[15%] lg:rounded-md">
@@ -125,7 +140,7 @@ const HeroSection = () => {
                     <div className="mt-4 text-sm text-slate-500">
                         <p>
                             <strong>Suggestion:</strong> Designer, Programming, Digital
-                            Marketing, Video, Amimation, etc.
+                            Marketing, Video, Animation, etc.
                         </p>
                     </div>
                 </div>
@@ -142,10 +157,10 @@ const HeroSection = () => {
                 <div>
                     <h1 className="text-xl font-semibold text-center my-7 px-8">
                         Work With Exciting{' '}
-                        <span className="text-green-400 drop-shadow-md  font-bold ">
+                        <span className="text-green-400 drop-shadow-md font-bold ">
                             100+
                         </span>{' '}
-                        Companies In The World{' '}
+                        Companies In The World
                     </h1>
                 </div>
                 <div className="hidden lg:flex flex-row w-full justify-center">
