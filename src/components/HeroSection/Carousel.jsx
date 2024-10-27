@@ -30,7 +30,7 @@ const Carousel = ({ companies }) => {
                             <img
                                 src={item.img}
                                 alt={item.name}
-                                className="w-16 h-16 mx-auto object-cover rounded-full transition-transform duration-300 ease-in-out hover:shadow-md hover:shadow-green-400 hover:scale-105"
+                                className="w-12 h-12 mx-auto object-cover rounded-full transition-transform duration-300 ease-in-out hover:shadow-md hover:shadow-green-400 hover:scale-105"
                             />
                             <h3 className="mt-4 text-center font-medium">{item.name}</h3>
                         </a>
