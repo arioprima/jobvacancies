@@ -30,10 +30,14 @@ const Control = (props) => {
 const HeroSection = () => {
     const [maxMenuHeight, setMaxMenuHeight] = useState(150);
     const [menuPlacement, setMenuPlacement] = useState('bottom');
+    const [screenSize, setScreenSize] = useState(window.innerWidth);
     const selectWrapperRef = useRef(null);
+    const inputRef = useRef(null);
+    const containerRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
+            setScreenSize(window.innerWidth);
             if (window.innerWidth >= 1024) {
                 setMaxMenuHeight(245);
             } else {
@@ -58,8 +62,37 @@ const HeroSection = () => {
         }
     };
 
+    const handleFocus = () => {
+        if (screenSize < 768) {
+            if (containerRef.current) {
+                const elementPosition = containerRef.current.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY + 100;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth' //
+                });
+            }
+        };
+    };
+
+    const handleBlur = () => {
+        if (screenSize < 768) {
+            if (containerRef.current) {
+                const elementPosition = containerRef.current.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - 100;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        };
+    };
+
+
     return (
-        <div>
+        <div ref={containerRef}>
             <div className="flex flex-col pt-16 px-4 lg:flex-row lg:pt-5 lg:px-16">
                 <div className="lg:flex-[55%] lg:pt-20">
                     <div className="flex flex-col gap-2 text-4xl font-semibold text-slate-700 lg:font-normal">
@@ -83,10 +116,16 @@ const HeroSection = () => {
                                     type="text"
                                     placeholder="Job title, Keyword..."
                                     className="w-full pl-12 py-5 text-sm bg-[#FFFFFF] focus:outline-none ring-transparent rounded-lg lg:py-[0.65rem] lg:px-12"
+                                    onFocus={handleFocus}
+                                    onBlur={handleBlur}
+                                    ref={inputRef}
                                 />
                             </div>
                             <div className="relative lg:border-l-2 lg:border-slate-200" ref={selectWrapperRef}>
                                 <Select
+                                    onFocus={handleFocus}
+                                    onBlur={handleBlur}
+                                    ref={inputRef}
                                     options={countryOptions}
                                     placeholder="Select your location"
                                     styles={{
