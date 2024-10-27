@@ -16,6 +16,8 @@ import Transportation from '@icons/transportation.svg'
 import Transportation_hover from '@icons/transportation-hover.svg'
 import Finance from '@icons/purchase-order.svg'
 import Finance_hover from '@icons/purchase-order-hover.svg'
+import More from '@icons/dots.svg'
+import More_hover from '@icons/dots-hover.svg'
 
 
 const categories = [
@@ -23,46 +25,60 @@ const categories = [
         name: "Accounting",
         img: Accounting,
         img_hover: Accounting_hover,
+        navigate: "/categories/accounting"
     },
     {
         name: "Marketing",
         img: Marketing,
         img_hover: Marketing_hover,
+        navigate: "/categories/marketing"
     },
     {
         name: "Medicine",
         img: Medicine,
         img_hover: Medicine_hover,
+        navigate: "/categories/medicine"
     },
     {
         name: "Agriculture",
         img: Agriculture,
         img_hover: Agriculture_hover,
+        navigate: "/categories/agriculture"
     },
     {
         name: "IT",
         img: IT,
         img_hover: IT_hover,
+        navigate: "/categories/it"
+    },
+    {
+        name: "More",
+        img: More,
+        img_hover: More_hover,
     },
     {
         name: "Management",
         img: Management,
         img_hover: Management_hover,
+        navigate: "/categories/management"
     },
     {
         name: "Construction",
         img: Construction,
         img_hover: Construction_hover,
+        navigate: "/categories/construction"
     },
     {
         name: "Transportation",
         img: Transportation,
         img_hover: Transportation_hover,
+        navigate: "/categories/transportation"
     },
     {
         name: "Finance",
         img: Finance,
         img_hover: Finance_hover,
+        navigate: "/categories/finance"
     },
 ];
 

@@ -52,6 +52,9 @@ const HeroSection = () => {
     }, []);
 
     const handleMenuOpen = () => {
+        if (window.innerWidth >= 1024) {
+            return setMenuPlacement('bottom');
+        }
         const selectRect = selectWrapperRef.current.getBoundingClientRect();
         const spaceAbove = selectRect.top;
         const spaceBelow = window.innerHeight - selectRect.bottom;
