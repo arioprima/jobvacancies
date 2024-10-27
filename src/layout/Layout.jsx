@@ -1,7 +1,6 @@
-import Footer from "@components/common/Footer";
-import Navbar from "@components/common/Navbar";
-import LandingPage from "@pages/LandingPage";
-
+import Footer from '@components/Footer/Footer';
+import Navbar from '@components/Navbar/Navbar';
+import LandingPage from '@pages/LandingPage';
 
 const Layout = () => {
     return (
@@ -16,7 +15,7 @@ const Layout = () => {
                 <Footer />
             </footer>
         </section>
-    )
-}
+    );
+};
 
 export default Layout;
