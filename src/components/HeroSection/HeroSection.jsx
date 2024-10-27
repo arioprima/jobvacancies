@@ -5,6 +5,7 @@ import Select, { components } from 'react-select';
 import Illustration from '@images/Illustration.svg';
 import Carousel from './Carousel';
 import Companies from '@constants/companies';
+import Button from '@components/common/Button';
 
 const countryOptions = [
     { value: 'us', label: 'United States' },
@@ -116,9 +117,9 @@ const HeroSection = () => {
                                     maxMenuHeight={maxMenuHeight}
                                 />
                             </div>
-                            <button className="btn btn-success w-full py-6 text-lg hover:bg-green-400 lg:text-[0.75rem] lg:text-nowrap lg:py-4 lg:w-[15%] lg:rounded-md">
+                            <Button className="btn btn-success w-full py-6 text-lg hover:bg-green-400 lg:text-[0.75rem] lg:text-nowrap lg:py-4 lg:w-[15%] lg:rounded-md">
                                 Find Jobs
-                            </button>
+                            </Button>
                         </div>
                     </form>
                     <div className="mt-4 text-sm text-slate-500">
