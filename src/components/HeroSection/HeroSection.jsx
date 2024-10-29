@@ -128,7 +128,6 @@ const HeroSection = () => {
                                 <Select
                                     onFocus={handleFocus}
                                     onBlur={handleBlur}
-                                    ref={inputRef}
                                     options={countryOptions}
                                     placeholder="Select your location"
                                     styles={{
@@ -195,7 +194,7 @@ const HeroSection = () => {
                     />
                 </div>
             </div>
-            <div className="lg:mt-20">
+            <div className="lg:mt-12">
                 <div>
                     <h1 className="text-xl font-semibold text-center my-7 px-8">
                         Work With Exciting{' '}
