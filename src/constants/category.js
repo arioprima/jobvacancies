@@ -8,6 +8,8 @@ import Agriculture from '@icons/agriculture.svg'
 import Agriculture_hover from '@icons/agriculture-hover.svg'
 import IT from '@icons/programmer.svg'
 import IT_hover from '@icons/programmer-hover.svg'
+import Engineering from '@icons/engineering.svg'
+import Engineering_hover from '@icons/engineering-hover.svg'
 import Management from '@icons/management.svg'
 import Management_hover from '@icons/management-hover.svg'
 import Construction from '@icons/construction.svg'
@@ -28,12 +30,6 @@ const categories = [
         navigate: "/categories/accounting"
     },
     {
-        name: "Marketing",
-        img: Marketing,
-        img_hover: Marketing_hover,
-        navigate: "/categories/marketing"
-    },
-    {
         name: "Medicine",
         img: Medicine,
         img_hover: Medicine_hover,
@@ -46,10 +42,16 @@ const categories = [
         navigate: "/categories/agriculture"
     },
     {
-        name: "IT",
+        name: "Digital Marketing",
+        img: Marketing,
+        img_hover: Marketing_hover,
+        navigate: "/categories/digital-marketing"
+    },
+    {
+        name: "Web Development",
         img: IT,
         img_hover: IT_hover,
-        navigate: "/categories/it"
+        navigate: "/categories/web-development"
     },
     {
         name: "More",
@@ -79,6 +81,12 @@ const categories = [
         img: Finance,
         img_hover: Finance_hover,
         navigate: "/categories/finance"
+    },
+    {
+        name: "Engineering",
+        img: Engineering,
+        img_hover: Engineering_hover,
+        navigate: "/categories/engineering"
     },
 ];
 
