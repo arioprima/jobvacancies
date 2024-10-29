@@ -128,7 +128,6 @@ const HeroSection = () => {
                                 <Select
                                     onFocus={handleFocus}
                                     onBlur={handleBlur}
-                                    ref={inputRef}
                                     options={countryOptions}
                                     placeholder="Select your location"
                                     styles={{
@@ -174,7 +173,7 @@ const HeroSection = () => {
                                     onMenuOpen={handleMenuOpen}
                                 />
                             </div>
-                            <Button className="btn btn-success w-full py-6 text-lg hover:bg-green-400 lg:text-[0.75rem] lg:text-nowrap lg:py-4 lg:w-[15%] lg:rounded-md">
+                            <Button className="cursor-pointer text-white btn-success w-full py-3 rounded-xl text-lg hover:bg-green-400 lg:text-[0.75rem] lg:text-nowrap lg:py-2 lg:w-[15%] lg:rounded-md ">
                                 Find Jobs
                             </Button>
                         </div>
@@ -195,7 +194,7 @@ const HeroSection = () => {
                     />
                 </div>
             </div>
-            <div className="lg:mt-20">
+            <div className="lg:mt-12">
                 <div>
                     <h1 className="text-xl font-semibold text-center my-7 px-8">
                         Work With Exciting{' '}
