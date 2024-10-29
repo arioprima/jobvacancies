@@ -1,29 +1,32 @@
 import PropTypes from 'prop-types';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import categories from '@constants/category';
 import Select, { components } from 'react-select';
 import More from '@icons/dots.svg'
 import More_hover from '@icons/dots-hover.svg'
+import { useAppContext } from '../../contexts/useAppContext';
 
 const Control = (props) => {
-    const iconSrc = props.isHovered ? More : More_hover;
-
+    const { hoveredIndex } = useAppContext();
+    console.log(hoveredIndex, 'hoveredIndex');
     return (
-        <components.Control {...props}>
-            <div className=' flex gap-2'>
-                <div className={`${props.isHovered ? 'bg-slate-500' : 'bg-white'} rounded-full p-2 flex items-center justify-center w-12 h-12`}>
-                    <img
-                        src={iconSrc}
-                        alt="More"
-                        className="w-6 h-6 transition-transform duration-300 ease-in-out"
-                    />
-                </div>
-                {props.children}
+        <components.Control
+            {...props}
+            className={`flex gap-[0.4rem] transition-colors duration-300`}
+        >
+            <div className={`${hoveredIndex === 5 ? 'bg-slate-500' : 'bg-white'} rounded-full p-3 flex items-center justify-center`}>
+                <img
+                    src={hoveredIndex === 5 ? More : More_hover}
+                    alt="More"
+                    className="w-6 h-6 transition-transform duration-300 ease-in-out lg:h-5 lg:w-5"
+                />
             </div>
+            {props.children}
         </components.Control>
     );
 };
+
 const CustomOption = (props) => {
     const { data, isFocused } = props;
 
@@ -33,7 +36,7 @@ const CustomOption = (props) => {
                 <img
                     src={isFocused ? data.icon : data.icon_hover}
                     alt={data.label}
-                    className="mr-2 w-6 h-6"
+                    className="mr-2 w-6 h-6 lg:w-5 lg:h-5"
                 />
                 <span className={`${isFocused ? 'text-slate-900' : 'text-slate-700'}`}>{data.label}</span>
             </div>
@@ -44,14 +47,10 @@ const CustomOption = (props) => {
 
 
 const Information = () => {
-    const [hoveredIndex, setHoveredIndex] = useState(null);
-    const [menuPlacement, setMenuPlacement] = useState('bottom');
+    const { hoveredIndex, setHoveredIndex, menuPlacement, setMenuPlacement } = useAppContext();
     const selectWrapperRef = useRef(null);
 
     const handleMenuOpen = () => {
-        if (window.innerWidth >= 1024) {
-            return setMenuPlacement('bottom');
-        }
         const selectRect = selectWrapperRef.current.getBoundingClientRect();
         const spaceAbove = selectRect.top;
         const spaceBelow = window.innerHeight - selectRect.bottom;
@@ -62,20 +61,28 @@ const Information = () => {
         }
     };
 
+
     return (
-        <div className="my-8 flex flex-col gap-7">
-            <div className="text-xl w-[90%] break-words text-justify px-2 text-slate-700 font-bold lg:text-base lg:mt-4">
-                <p>
-                    Let&apos;s help you choose the category you want
-                </p>
+        <div className="py-8 flex flex-col gap-7 lg:px-16">
+            <div className='flex flex-col gap-4'>
+                <div className="inline-flex justify-center text-xl  w-full break-words text-justify px-2 text-slate-700 font-bold lg:font-bold lg:text-2xl lg:mt-2 ">
+                    <p>
+                        Browse Job By Categories
+                    </p>
+                </div>
+                <div className='inline-flex justify-center text-md w-full break-words text-center px-2 text-slate-700 lg:text-md lg:mt-1 lg:mb-5'>
+                    <p>
+                        Post a job to tell us about your project. We&apos;ll quickly match you with the right freelancers.
+                    </p>
+                </div>
             </div>
-            <div className='flex flex-col gap-3'>
+            <div className='flex flex-col gap-3 lg:flex-row lg:flex-wrap lg:justify-between'>
                 {categories.map((category, index) => (
                     index < 5 ? (
                         <Link
                             key={index}
                             to={`${category?.navigate}`}
-                            className={`flex px-3 py-2 rounded-[32px] mx-2 gap-4 text-lg items-center transition-colors duration-300 ease-in-out ${hoveredIndex === index ? 'bg-slate-300 shadow-md shadow-green-200 text-slate-900' : 'bg-primary text-slate-700'}`}
+                            className={`flex px-3 py-2 rounded-[32px] mx-2 gap-4 text-lg lg:text-base lg:pr-9 items-center transition-colors duration-300 ease-in-out ${hoveredIndex === index ? 'bg-slate-300 shadow-md shadow-green-200 text-slate-900' : 'bg-primary text-slate-700'}`}
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
                         >
@@ -83,19 +90,17 @@ const Information = () => {
                                 <img
                                     src={hoveredIndex === index ? category.img : category.img_hover}
                                     alt={category.name}
-                                    className="w-8 h-8 transition-transform duration-300 ease-in-out"
+                                    className="w-8 h-8 transition-transform duration-300 ease-in-out lg:w-6 lg:h-6"
                                 />
                             </div>
                             <h3 className="font-medium">{category.name}</h3>
                         </Link>
                     ) : index === 5 ? (
                         <div
-                            key={index}
-                            to={`${category?.navigate}`}
-                            className={`flex px-3 py-2 rounded-[32px] mx-2 gap-4 text-lg items-center transition-colors duration-300 ease-in-out ${hoveredIndex === index ? 'bg-slate-300 shadow-md shadow-green-200 text-slate-900' : 'bg-primary text-slate-700'}`}
+                            className={`flex px-3 py-2 rounded-[32px] mx-2 gap-4 text-lg transition-colors duration-300 ease-in-out lg:text-base bg-primary text-slate-700 hover:bg-slate-300 hover:shadow-md hover:shadow-green-200 hover:text-slate-900 hover:cursor-pointer`}
+                            ref={selectWrapperRef}
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
-                            ref={selectWrapperRef}
                         >
                             <Select
                                 options={categories.slice(6).map((category) => ({
@@ -116,10 +121,11 @@ const Information = () => {
                                         borderColor: isFocused
                                             ? 'transparent'
                                             : styles.borderColor,
-                                        '@media (min-width: 1024px)': {
-                                            padding: '0.25rem 2rem',
-                                            fontSize: '0.8rem',
+                                        '&:hover': {
+                                            borderColor: 'none',
+                                            cursor: 'pointer',
                                         },
+
                                     }),
                                     indicatorSeparator: (styles) => ({
                                         ...styles,
@@ -132,6 +138,16 @@ const Information = () => {
                                     menu: (styles) => ({
                                         ...styles,
                                         marginTop: '0.65rem',
+                                        marginBottom: '0.65rem',
+                                        borderRadius: '0.5rem',
+                                        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                                        backgroundColor: '#F1F2F4',
+                                        width: '100%',
+                                        zIndex: 10,
+                                        '@media (min-width: 1024px)': {
+                                            width: '10rem',
+
+                                        },
                                     }),
                                     option: (styles, { isFocused }) => ({
                                         ...styles,
@@ -141,6 +157,11 @@ const Information = () => {
                                         padding: '0.75rem',
                                         '&:hover': {
                                             backgroundColor: '#cbd5e1',
+                                            cursor: 'pointer',
+                                        },
+                                        '@media (min-width: 1024px)': {
+                                            fontSize: '0.75rem',
+
                                         },
                                     }),
                                     placeholder: (styles) => ({
@@ -148,12 +169,13 @@ const Information = () => {
                                         fontSize: '1.125rem',
                                         fontWeight: '500',
                                         color: hoveredIndex ? '#0f172a' : '#334155',
+                                        '@media (min-width: 1024px)': {
+                                            fontSize: '1rem',
+                                        },
                                     }),
                                 }}
                                 components={{
-                                    Control: (props) => (
-                                        <Control {...props} isHovered={hoveredIndex === index} />
-                                    ),
+                                    Control,
                                     Option: CustomOption,
                                 }}
                                 className='w-full px-0'
