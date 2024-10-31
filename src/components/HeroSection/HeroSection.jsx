@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { UilBriefcaseAlt, UilMapMarker } from '@iconscout/react-unicons';
 import Select, { components } from 'react-select';
 import Illustration from '@images/Illustration.svg';
-import Carousel from './Carousel';
+import Carousel from '../common/Carousel';
 import Companies from '@constants/companies';
 import Button from '@components/common/Button';
 
