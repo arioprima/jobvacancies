@@ -42,13 +42,13 @@ const categories = [
         navigate: "/categories/agriculture"
     },
     {
-        name: "Digital Marketing",
+        name: "Marketing",
         img: Marketing,
         img_hover: Marketing_hover,
         navigate: "/categories/digital-marketing"
     },
     {
-        name: "Web Development",
+        name: "IT",
         img: IT,
         img_hover: IT_hover,
         navigate: "/categories/web-development"
