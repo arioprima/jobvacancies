@@ -110,7 +110,7 @@ const HeroSection = () => {
                     </div>
                     <form>
                         <div className="flex flex-col w-full gap-4 mt-10 lg:bg-white lg:flex-row lg:items-center lg:justify-between lg:mt-5 lg:pr-4 lg:py-2 lg:rounded-md ">
-                            <div className="relative">
+                            <div className="relative ">
                                 <UilBriefcaseAlt
                                     color="#82FD6E"
                                     className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 lg:top-[48%]"
@@ -124,7 +124,7 @@ const HeroSection = () => {
                                     ref={inputRef}
                                 />
                             </div>
-                            <div className="relative lg:border-l-2 lg:border-slate-200" ref={selectWrapperRef}>
+                            <div className="lg:border-l-2 lg:border-slate-200" ref={selectWrapperRef}>
                                 <Select
                                     onFocus={handleFocus}
                                     onBlur={handleBlur}
@@ -143,6 +143,7 @@ const HeroSection = () => {
                                                 ? 'transparent'
                                                 : styles.borderColor,
                                             '@media (min-width: 1024px)': {
+                                                width: '18vw',
                                                 padding: '0.25rem 2rem',
                                                 fontSize: '0.8rem',
                                             },
@@ -171,6 +172,7 @@ const HeroSection = () => {
                                     maxMenuHeight={maxMenuHeight}
                                     menuPlacement={menuPlacement}
                                     onMenuOpen={handleMenuOpen}
+
                                 />
                             </div>
                             <Button className="cursor-pointer text-white btn-success w-full py-3 rounded-xl text-lg hover:bg-green-400 lg:text-[0.75rem] lg:text-nowrap lg:py-2 lg:w-[15%] lg:rounded-md ">
