@@ -61,7 +61,6 @@ const Information = () => {
         }
     };
 
-
     return (
         <div className="py-8 flex flex-col gap-7 lg:px-16">
             <div className='flex flex-col gap-4'>
