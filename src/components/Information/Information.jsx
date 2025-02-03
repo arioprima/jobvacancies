@@ -54,19 +54,19 @@ const Information = () => {
             icon: 'https://via.placeholder.com/40',
             title: 'Register an account',
             description: 'Create your account to unlock access to thousands of job opportunities tailored to your skills and interests.',
-            image: 'https://placehold.co/400',
+            image: 'https://themesdesign.in/jobcy/layout/assets/images/process-01.png',
         },
         {
             icon: 'https://via.placeholder.com/40',
             title: 'Find your job',
             description: 'Discover the perfect job that matches your skills, interests, and location with our advanced search tools.',
-            image: 'https://placehold.co/500',
+            image: 'https://themesdesign.in/jobcy/layout/assets/images/process-02.png',
         },
         {
             icon: 'https://via.placeholder.com/40',
             title: 'Apply for job',
             description: 'Apply to your dream job in just a few clicks and wait for responses from employers.',
-            image: 'https://placehold.co/600',
+            image: 'https://themesdesign.in/jobcy/layout/assets/images/process-03.png',
         }
     ], []);
     const [activeStep, setActiveStep] = useState(0);
@@ -236,9 +236,9 @@ const Information = () => {
                     </div>
                 </div>
                 <section className="flex flex-col md:flex-row lg:py-8 p-4 lg:px-16 ">
-                    <div className="w-full md:w-[50%] flex flex-col items-center ">
+                    <div className="w-full md:w-[50%] flex flex-col items-center lg:pt-2">
                         {steps.map((step, index) => (
-                            <div key={index} className="flex items-start w-full lg:pr-20"
+                            <div key={index} className="flex items-start w-full lg:pl-20"
                                 onClick={() => setActiveStep(index)}>
                                 <div className="flex flex-col items-center">
                                     <div
@@ -255,18 +255,18 @@ const Information = () => {
                                     )}
                                 </div>
 
-                                <div ref={(el) => (stepRefs.current[index] = el)} className="flex flex-col items-start w-full pl-4 gap-3" onClick={() => setActiveStep(index)}>
+                                <div ref={(el) => (stepRefs.current[index] = el)} className="flex flex-col items-start w-full pl-4 gap-3 hover:cursor-pointer">
                                     <p className="text-lg lg:text-xl font-semibold">{step.title}</p>
                                     <p className="text-sm lg:text-md text-gray-600">{step.description}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
-                    <div className="w-full md:w-[50%] mt-8 md:mt-0 md:ml-8 ">
+                    <div className="w-full md:w-[50%] mt-8 md:mt-0 flex items-start justify-center py-2">
                         <img
                             src={steps[activeStep].image}
                             alt={`Step ${activeStep + 1}`}
-                            className="rounded-lg mb-4 h-[50vh] w-full object-cover"
+                            className="rounded-lg   lg:w-[28vw] lg:h-[28vw]"
                         />
                     </div>
                 </section>
