@@ -7,7 +7,7 @@ const LandingPage = () => {
             <section className="bg-primary lg:h-screen">
                 <HeroSection />
             </section>
-            <section className="bg-white">
+            <section>
                 <Information />
             </section>
         </div>
