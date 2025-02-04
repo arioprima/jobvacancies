@@ -1,5 +1,6 @@
 import HeroSection from "@components/HeroSection/HeroSection";
 import Information from "@components/Information/Information";
+import Testimony from "@components/Testimony/Testimony";
 
 const LandingPage = () => {
     return (
@@ -9,6 +10,9 @@ const LandingPage = () => {
             </section>
             <section>
                 <Information />
+            </section>
+            <section className="pt-12 pb-8">
+                <Testimony />
             </section>
         </div>
     );
