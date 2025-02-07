@@ -11,7 +11,7 @@ const Layout = () => {
             <main>
                 <LandingPage />
             </main>
-            <footer>
+            <footer className='bg-primary'>
                 <Footer />
             </footer>
         </section>
