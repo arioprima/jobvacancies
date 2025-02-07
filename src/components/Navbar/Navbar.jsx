@@ -20,7 +20,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="flex justify-between items-center p-3 lg:py-2 bg-white lg:px-16 lg:navbar-glass lg:text-sm">
+            <nav className="flex justify-between items-center p-3 lg:py-3 bg-white lg:px-16 lg:navbar-glass lg:text-sm">
                 <div className="lg:w-[75%]">
                     <Link to="/">
                         <img src={Logo} alt="logo" className="h-[2.7rem]" />
@@ -80,8 +80,8 @@ const Navbar = () => {
             </nav>
             <div
                 className={`${isMenuOpen
-                        ? 'absolute bg-primary  w-full opacity-100 transform scale-y-100 transition-all duration-1000 ease-in-out origin-top shadow-sm shadow-slate-600 lg:hidden'
-                        : 'absolute w-full opacity-0 transform scale-y-0 h-64 transition-all duration-1000 ease-in-out origin-top shadow-sm shadow-slate-700 lg:hidden'
+                    ? 'absolute bg-primary  w-full opacity-100 transform scale-y-100 transition-all duration-1000 ease-in-out origin-top shadow-sm shadow-slate-600 lg:hidden'
+                    : 'absolute w-full opacity-0 transform scale-y-0 h-64 transition-all duration-1000 ease-in-out origin-top shadow-sm shadow-slate-700 lg:hidden'
                     }`}
             >
                 {isMenuOpen ? (
