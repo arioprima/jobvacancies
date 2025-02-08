@@ -1,13 +1,16 @@
 import Layout from '@layouts/Layout';
+import Login from '@pages/Login/Login';
 import { createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Layout />,
-        children: [
-        ],
     },
+    {
+        path: '/login',
+        element: <Login />,
+    }
 ]);
 
 export default router;

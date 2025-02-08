@@ -1,36 +1,17 @@
-import { isValidEmail } from '@utils/regex';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import { isValidEmail } from '@utils/regex';
 import { LuEyeClosed, LuEye } from "react-icons/lu";
 import { AiOutlineMail } from "react-icons/ai";
-import GoogleIcons from "@icons/google-icon.svg";
-import LinkedIcons from "@icons/icons8-linkedin.svg";
-import GithubIcons from "@icons/github-icon.svg";
 import { Tooltip } from 'react-tooltip';
 import { RxCross2 } from "react-icons/rx";
+import { oauthLoginList } from '@constants/oauthLoginList';
 
 const Login = ({ isOpen, onClose }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
-    const OauthLogin = [
-        {
-            name: 'Google',
-            icon: GoogleIcons,
-            tooltip: 'Sign in with Google',
-        },
-        {
-            name: 'Linkedin',
-            icon: LinkedIcons,
-            tooltip: 'Sign in with Linkedin',
-        },
-        {
-            name: 'Github',
-            icon: GithubIcons,
-            tooltip: 'Sign in with Github',
-        },
-    ]
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -142,7 +123,7 @@ const Login = ({ isOpen, onClose }) => {
                     Or Sign in with
                 </p>
                 <div className="flex justify-center gap-10 mt-5">
-                    {OauthLogin.map((item, index) => (
+                    {oauthLoginList.map((item, index) => (
                         <button
                             key={index}
                             className="transition duration-300 hover:brightness-150 hover:drop-shadow-lg"
@@ -156,7 +137,7 @@ const Login = ({ isOpen, onClose }) => {
                             />
                         </button>
                     ))}
-                    {OauthLogin.map((_, index) => (
+                    {oauthLoginList.map((_, index) => (
                         <Tooltip
                             key={index} id={`tooltip-${index}`}
                             style={{ backgroundColor: "rgb(130, 253, 110)", color: "black" }}
