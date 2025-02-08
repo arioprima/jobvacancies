@@ -9,7 +9,6 @@ import { useAppContext } from '../../contexts/useAppContext';
 
 const Control = (props) => {
     const { hoveredIndex } = useAppContext();
-    console.log(hoveredIndex, 'hoveredIndex');
     return (
         <components.Control
             {...props}
@@ -278,7 +277,6 @@ const Information = () => {
 
 Control.propTypes = {
     children: PropTypes.node.isRequired,
-    isHovered: PropTypes.bool.isRequired,
 };
 
 CustomOption.propTypes = {

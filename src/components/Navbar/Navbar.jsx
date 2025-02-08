@@ -3,9 +3,11 @@ import Logo from '@images/logo.svg';
 import { FaArrowRight } from 'react-icons/fa';
 import { useState } from 'react';
 import Button from '@components/common/Button';
+import Login from '@components/Login/Login';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -43,7 +45,9 @@ const Navbar = () => {
                 <div
                     className={`${isMenuOpen ? 'hidden' : 'lg:flex items-center gap-5 lg:justify-end lg:w-full hidden'}`}
                 >
-                    <p className="py-[0.5rem] ease-linear duration-150 hover:capitalize hover:text-green-400 hover:underline text-nowrap hover:cursor-pointer">
+                    <p className="py-[0.5rem] ease-linear duration-150 hover:capitalize hover:text-green-400 hover:underline text-nowrap hover:cursor-pointer"
+                        onClick={() => setIsModalOpen(true)}
+                    >
                         Login
                     </p>
                     <Button className="btn btn-success btn-sm px-4 hover:scale-105 hover:bg-green-400">
@@ -112,6 +116,7 @@ const Navbar = () => {
                     </div>
                 ) : null}
             </div>
+            <Login isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </>
     );
 };
