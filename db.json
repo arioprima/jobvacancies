@@ -1,0 +1,6 @@
+{
+  "cities": [
+    { "id": 1, "name": "Jakarta Barat" },
+    { "id": 2, "name": "Jakarta Selatan" }
+  ]
+}

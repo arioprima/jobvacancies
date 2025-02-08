@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -5,8 +6,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "green-custom": "#82FD6E",
+        'primary': '#F1F2F4',
+      },
+    },
   },
-  plugins: [],
+  // plugins: [require("rippleui")],
+  plugins: [
+    require("rippleui")
+  ],
 }
 
