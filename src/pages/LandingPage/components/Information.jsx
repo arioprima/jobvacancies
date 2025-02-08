@@ -5,7 +5,7 @@ import categories from '@constants/category';
 import Select, { components } from 'react-select';
 import More from '@icons/dots.svg'
 import More_hover from '@icons/dots-hover.svg'
-import { useAppContext } from '../../contexts/useAppContext';
+import { useAppContext } from '../../../contexts/useAppContext';
 
 const Control = (props) => {
     const { hoveredIndex } = useAppContext();

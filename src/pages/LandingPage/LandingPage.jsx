@@ -1,7 +1,6 @@
-import HeroSection from "@components/HeroSection/HeroSection";
-import Information from "@components/Information/Information";
-import Testimony from "@components/Testimony/Testimony";
-
+import HeroSection from "./components/HeroSection";
+import Information from "./components/Information";
+import Testimony from "./components/Testimony";
 const LandingPage = () => {
     return (
         <div>
