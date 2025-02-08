@@ -191,8 +191,7 @@ const HeroSection = () => {
                     <img
                         src={Illustration}
                         alt="hero"
-                        className="w-full my-12 lg:w-[80%] text-end lg:my-0"
-                        loading="lazy"
+                        className="w-full  my-12 lg:w-[80%] text-end lg:my-0"
                     />
                 </div>
             </div>
