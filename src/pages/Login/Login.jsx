@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import BackgroundImage from '@images/backgroud-image.svg';
 import Logo from '@images/logo.svg';
-import { LuEyeClosed, LuEye } from "react-icons/lu";
-import { AiOutlineMail } from "react-icons/ai";
+import { LuEyeClosed, LuEye } from 'react-icons/lu';
+import { AiOutlineMail } from 'react-icons/ai';
 import { Tooltip } from 'react-tooltip';
 import { isValidEmail } from '@utils/regex';
 import { oauthLoginList } from '@constants/oauthLoginList';
@@ -24,9 +24,7 @@ const Login = () => {
     const isFormValid = isValidEmail(email) && password.length > 5;
 
     return (
-        <div className='bg-white -z-20 w-full h-screen flex flex-col items-center justify-center'>
-            {/* Background Image */}
-            {/* Logo */}
+        <div className="bg-white -z-20 w-full h-screen flex flex-col items-center justify-center">
             <img
                 src={Logo}
                 alt="logo"
@@ -37,10 +35,6 @@ const Login = () => {
                 alt="background"
                 className="hidden lg:block fixed top-[80px] left-[75px] w-[80%] h-[150vh] bg-white opacity-70 mt-4"
             />
-
-
-
-            {/* FORM - Responsive */}
             <div className="bg-white w-full max-w-[90%] sm:max-w-md md:max-w-lg lg:w-[25%] h-auto z-50 rounded-lg shadow-xl p-8 mt-14 lg:mt-24">
                 <div className="flex flex-col items-center">
                     <h1 className="text-2xl font-medium">Sign In</h1>
@@ -58,9 +52,12 @@ const Login = () => {
                                 value={email}
                                 onChange={handleInputChange}
                                 className="border border-gray-300 p-2 rounded-md focus:outline-green-300 w-full pr-10"
-                                autoComplete='off'
+                                autoComplete="off"
                             />
-                            <AiOutlineMail size={20} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                            <AiOutlineMail
+                                size={20}
+                                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                            />
                         </div>
                     </div>
 
@@ -68,13 +65,13 @@ const Login = () => {
                         <span className="text-md text-slate-800">Password</span>
                         <div className="relative w-full">
                             <input
-                                type={showPassword ? "text" : "password"}
+                                type={showPassword ? 'text' : 'password'}
                                 placeholder="Password"
                                 name="password"
                                 value={password}
                                 onChange={handleInputChange}
                                 className="border border-gray-300 p-2 rounded-md focus:outline-green-300 w-full pr-10"
-                                autoComplete='off'
+                                autoComplete="off"
                             />
                             <button
                                 type="button"
@@ -87,12 +84,16 @@ const Login = () => {
                     </div>
 
                     <p className="text-right text-sm">
-                        <span className="text-green-500 cursor-pointer">Forgot Password?</span>
+                        <span className="text-green-500 cursor-pointer">
+                            Forgot Password?
+                        </span>
                     </p>
 
                     <button
                         type="submit"
-                        className={`my-3 p-2 rounded-md w-full ${isFormValid ? "bg-green-500 hover:bg-green-600 text-white" : "bg-gray-400 text-gray-200 cursor-not-allowed"
+                        className={`my-3 p-2 rounded-md w-full ${isFormValid
+                                ? 'bg-green-500 hover:bg-green-600 text-white'
+                                : 'bg-gray-400 text-gray-200 cursor-not-allowed'
                             }`}
                         disabled={!isFormValid}
                     >
@@ -110,20 +111,24 @@ const Login = () => {
                             data-tooltip-id={`tooltip-${index}`}
                             data-tooltip-content={item.tooltip}
                         >
-                            <img src={item.icon} alt={`${item.name} Icon`} className="w-9 h-9" />
+                            <img
+                                src={item.icon}
+                                alt={`${item.name} Icon`}
+                                className="w-9 h-9"
+                            />
                         </button>
                     ))}
                     {oauthLoginList.map((_, index) => (
                         <Tooltip
                             key={index}
                             id={`tooltip-${index}`}
-                            style={{ backgroundColor: "rgb(130, 253, 110)", color: "black" }}
+                            style={{ backgroundColor: 'rgb(130, 253, 110)', color: 'black' }}
                         />
                     ))}
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export default Login;
