@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '@images/logo.svg';
 import { FaArrowRight } from 'react-icons/fa';
 import { useState } from 'react';
@@ -8,6 +8,7 @@ import Login from '@components/Login/Login';
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -50,7 +51,7 @@ const Navbar = () => {
                     >
                         Login
                     </p>
-                    <Button className="btn btn-success btn-sm px-4 hover:scale-105 hover:bg-green-400">
+                    <Button className="btn btn-success btn-sm px-4 hover:scale-105 hover:bg-green-400" onClick={() => navigate('/register')}>
                         Sign Up
                     </Button>
                     <div className="flex gap-3 items-center hover:text-green-400">
@@ -103,7 +104,9 @@ const Navbar = () => {
                             <Link to="/login" className="ease-linear duration-150 hover:capitalize hover:text-green-400 hover:underline text-nowrap hover:cursor-pointer">
                                 Login
                             </Link>
-                            <Button className="btn btn-success btn-sm px-4 hover:scale-105 hover:bg-green-400">
+                            <Button className="btn btn-success btn-sm px-4 hover:scale-105 hover:bg-green-400" onClick={
+                                () => navigate
+                            }>
                                 Sign Up
                             </Button>
                             <div className="flex flex-row items-start gap-2 hover:text-green-400 ">
