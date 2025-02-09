@@ -100,9 +100,9 @@ const Navbar = () => {
                             </Link>
                         ))}
                         <div className="px-[1.1rem] flex flex-col gap-5 mt-2">
-                            <p className="ease-linear duration-150 hover:capitalize hover:text-green-400 hover:underline text-nowrap hover:cursor-pointer">
+                            <Link to="/login" className="ease-linear duration-150 hover:capitalize hover:text-green-400 hover:underline text-nowrap hover:cursor-pointer">
                                 Login
-                            </p>
+                            </Link>
                             <Button className="btn btn-success btn-sm px-4 hover:scale-105 hover:bg-green-400">
                                 Sign Up
                             </Button>
