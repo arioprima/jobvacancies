@@ -24,7 +24,7 @@ const Login = () => {
     const isFormValid = isValidEmail(email) && password.length > 5;
 
     return (
-        <div className="bg-white -z-20 w-full h-screen flex flex-col items-center justify-center">
+        <div className="bg-white -z-20 w-full h-screen flex flex-col items-center lg:justify-center">
             <img
                 src={Logo}
                 alt="logo"
@@ -35,7 +35,7 @@ const Login = () => {
                 alt="background"
                 className="hidden lg:block fixed top-[80px] left-[75px] w-[80%] h-[150vh] bg-white opacity-70 mt-4"
             />
-            <div className="bg-white w-full max-w-[90%] sm:max-w-md md:max-w-lg lg:w-[25%] h-auto z-50 rounded-lg shadow-xl p-8 lg:mt-24">
+            <div className="bg-white w-full max-w-[90%] sm:max-w-md md:max-w-lg lg:w-[25%] h-auto z-50 rounded-lg shadow-lg p-8 lg:mt-24">
                 <div className="flex flex-col items-center">
                     <h1 className="text-2xl font-medium">Sign In</h1>
                     <p className="text-sm">Sign in to your account</p>
