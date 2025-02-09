@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-    const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [hoveredIndex, setHoveredIndex] = useState({});
     const [menuPlacement, setMenuPlacement] = useState('bottom');
 
     return (
