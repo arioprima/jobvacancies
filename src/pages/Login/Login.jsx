@@ -28,14 +28,14 @@ const Login = () => {
             <img
                 src={Logo}
                 alt="logo"
-                className="fixed top-0 w-32 h-32 sm:w-40 sm:h-40 z-20"
+                className="lg:fixed lg:top-0 w-32 h-32 sm:w-40 sm:h-40 z-20"
             />
             <img
                 src={BackgroundImage}
                 alt="background"
                 className="hidden lg:block fixed top-[80px] left-[75px] w-[80%] h-[150vh] bg-white opacity-70 mt-4"
             />
-            <div className="bg-white w-full max-w-[90%] sm:max-w-md md:max-w-lg lg:w-[25%] h-auto z-50 rounded-lg shadow-xl p-8 mt-14 lg:mt-24">
+            <div className="bg-white w-full max-w-[90%] sm:max-w-md md:max-w-lg lg:w-[25%] h-auto z-50 rounded-lg shadow-xl p-8 lg:mt-24">
                 <div className="flex flex-col items-center">
                     <h1 className="text-2xl font-medium">Sign In</h1>
                     <p className="text-sm">Sign in to your account</p>
@@ -92,8 +92,8 @@ const Login = () => {
                     <button
                         type="submit"
                         className={`my-3 p-2 rounded-md w-full ${isFormValid
-                                ? 'bg-green-500 hover:bg-green-600 text-white'
-                                : 'bg-gray-400 text-gray-200 cursor-not-allowed'
+                            ? 'bg-green-500 hover:bg-green-600 text-white'
+                            : 'bg-gray-400 text-gray-200 cursor-not-allowed'
                             }`}
                         disabled={!isFormValid}
                     >
