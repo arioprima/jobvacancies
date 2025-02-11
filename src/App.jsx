@@ -1,17 +1,22 @@
-
-import { RouterProvider } from 'react-router-dom';
-import router from '@router/routes';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import routes from "@router/routes";
+import Layout from "@layouts/Layout";
+import { AppProvider } from "./contexts/AppProvider";
 import './App.css';
-import { AppProvider } from './contexts/AppProvider';
 
+const router = createBrowserRouter(
+  routes.map(({ layout, element, ...rest }) => ({
+    ...rest,
+    element: layout ? <Layout>{element}</Layout> : element,
+  }))
+);
 
 function App() {
   return (
     <AppProvider>
       <RouterProvider router={router} />
     </AppProvider>
-
-  )
+  );
 }
 
-export default App
+export default App;

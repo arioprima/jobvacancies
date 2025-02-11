@@ -1,21 +1,25 @@
 import Footer from '@components/Footer/Footer';
 import Navbar from '@components/Navbar/Navbar';
-import LandingPage from '@pages/LandingPage/LandingPage';
+import PropTypes from 'prop-types';
 
-const Layout = () => {
+const Layout = ({ children }) => {
     return (
-        <section>
+        <div className="flex flex-col min-h-screen">
             <header className="sticky top-0 z-50 lg:z-10">
                 <Navbar />
             </header>
-            <main>
-                <LandingPage />
+            <main className="flex-grow">
+                {children}
             </main>
-            <footer className='bg-primary'>
+            <footer className="bg-primary">
                 <Footer />
             </footer>
-        </section>
+        </div>
     );
+};
+
+Layout.propTypes = {
+    children: PropTypes.node.isRequired,
 };
 
 export default Layout;
