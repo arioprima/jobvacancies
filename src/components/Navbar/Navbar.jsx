@@ -105,7 +105,7 @@ const Navbar = () => {
                                 Login
                             </Link>
                             <Button className="btn btn-success btn-sm px-4 hover:scale-105 hover:bg-green-400" onClick={
-                                () => navigate
+                                () => navigate('/register')
                             }>
                                 Sign Up
                             </Button>
