@@ -96,6 +96,7 @@ const Navbar = () => {
                                 key={index}
                                 className="py-[0.5rem] px-4 ease-linear duration-150 hover:capitalize hover:text-green-400 hover:underline text-nowrap"
                                 to={item.link}
+                                onClick={toggleMenu}
                             >
                                 {item.name}
                             </Link>
