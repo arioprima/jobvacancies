@@ -54,7 +54,7 @@ const Login = ({ isOpen, onClose }) => {
                 onClick={onClose}
             ></div>
 
-            <div className="bg-white w-[25%] h-[65%] z-10 rounded-lg shadow-xl p-8 relative">
+            <div className="bg-white w-[25%]  z-10 rounded-lg shadow-xl p-8 relative">
                 <button
                     onClick={onClose}
                     className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
