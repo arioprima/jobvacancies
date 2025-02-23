@@ -36,12 +36,10 @@ const NotFound = () => {
                     <img
                         src={NotFoundImage}
                         alt="Error 404"
-                        className="mx-auto w-80 lg:w-96"
+                        className="mx-auto w-80 lg:w-full"
                     />
                 </div>
             </div>
-            <div className="w-64 md:w-96 h-96 md:h-full lg:bg-blue-200 bg-opacity-30 absolute -top-64 md:-top-96 right-20 md:right-32 rounded-full pointer-events-none -rotate-45 transform"></div>
-            <div className="w-96 h-full lg:bg-yellow-200 bg-opacity-20 absolute -bottom-96 right-64 rounded-full pointer-events-none -rotate-45 transform"></div>
         </div>
     );
 };
