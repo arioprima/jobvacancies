@@ -47,6 +47,81 @@ const filters = [
     }
 ];
 
+const jobs = [
+    {
+        id: 1,
+        title: "Mobile Developer - IT (Supervisor Development Program)",
+        company: "PT Bintang Toedjoe",
+        location: "Jakarta Timur, Jakarta Raya",
+        category: "Developer/Programmer (Teknologi Informasi & Komunikasi)",
+        posted: "1 hari yang lalu",
+        logo: "https://placehold.co/400"
+    },
+    {
+        id: 2,
+        title: "Frontend Developer",
+        company: "PT Maju Jaya",
+        location: "Surabaya, Jawa Timur",
+        category: "Developer/Programmer (Web)",
+        posted: "2 hari yang lalu",
+        logo: "https://placehold.co/400"
+    },
+    {
+        id: 3,
+        title: "Mobile Developer - IT (Supervisor Development Program)",
+        company: "PT Bintang Toedjoe",
+        location: "Jakarta Timur, Jakarta Raya",
+        category: "Developer/Programmer (Teknologi Informasi & Komunikasi)",
+        posted: "1 hari yang lalu",
+        logo: "https://placehold.co/400"
+    },
+    {
+        id: 4,
+        title: "Frontend Developer",
+        company: "PT Maju Jaya",
+        location: "Surabaya, Jawa Timur",
+        category: "Developer/Programmer (Web)",
+        posted: "2 hari yang lalu",
+        logo: "https://placehold.co/400"
+    },
+    {
+        id: 5,
+        title: "Mobile Developer - IT (Supervisor Development Program)",
+        company: "PT Bintang Toedjoe",
+        location: "Jakarta Timur, Jakarta Raya",
+        category: "Developer/Programmer (Teknologi Informasi & Komunikasi)",
+        posted: "1 hari yang lalu",
+        logo: "https://placehold.co/400"
+    },
+    {
+        id: 6,
+        title: "Frontend Developer",
+        company: "PT Maju Jaya",
+        location: "Surabaya, Jawa Timur",
+        category: "Developer/Programmer (Web)",
+        posted: "2 hari yang lalu",
+        logo: "https://placehold.co/400"
+    },
+    {
+        id: 7,
+        title: "Mobile Developer - IT (Supervisor Development Program)",
+        company: "PT Bintang Toedjoe",
+        location: "Jakarta Timur, Jakarta Raya",
+        category: "Developer/Programmer (Teknologi Informasi & Komunikasi)",
+        posted: "1 hari yang lalu",
+        logo: "https://placehold.co/400"
+    },
+    {
+        id: 8,
+        title: "Frontend Developer",
+        company: "PT Maju Jaya",
+        location: "Surabaya, Jawa Timur",
+        category: "Developer/Programmer (Web)",
+        posted: "2 hari yang lalu",
+        logo: "https://placehold.co/400"
+    }
+];
+
 
 const Control = (props) => {
     return (
@@ -126,7 +201,7 @@ const Jobs = () => {
                 </div>
             </form>
 
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-2">
                 <div className="border-2 rounded-lg md:col-span-4">
                     <div className=" md:col-span-3 overflow-y-scroll max-h-[80vh]">
                         {filters.map((filter) => (
@@ -135,8 +210,23 @@ const Jobs = () => {
                     </div>
 
                 </div>
-                <div className="bg-yellow-300 md:col-span-8">
-                    Card Jobs
+                <div className="md:col-span-8  rounded-lg grid grid-cols-2 gap-10 h-[80vh] overflow-y-scroll">
+                    {jobs.map((job) => (
+                        <div key={job.id} className="flex flex-col gap-4 border-4 border-[#E6E8EB] rounded-lg p-4 justify-center">
+                            <img src={job.logo} alt={job.title} className="w-20 h-20" />
+                            <div className='flex flex-col gap-2'>
+                                <div className='flex flex-col'>
+                                    <h3 className="text-lg font-semibold h-14">{job.title}</h3>
+                                    <p className="text-lg">{job.company}</p>
+                                </div>
+                                <div>
+                                    <p className="text-sm text-gray-500">{job.location}</p>
+                                    <p className="text-sm text-gray-500">{job.category}</p>
+                                    <p className="text-sm text-gray-500">{job.posted}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 
