@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Logo from '@images/logo.svg';
 import { FaArrowRight } from 'react-icons/fa';
 import { useState } from 'react';
@@ -25,22 +25,25 @@ const Navbar = () => {
         <>
             <nav className="flex justify-between items-center p-3 lg:py-3 bg-white lg:px-16 lg:navbar-glass lg:text-sm">
                 <div className="lg:w-[75%]">
-                    <Link to="/">
+                    <NavLink to="/">
                         <img src={Logo} alt="logo" className="h-[2.7rem]" />
-                    </Link>
+                    </NavLink>
                 </div>
                 {navItems.map((item, index) => (
                     <section
                         key={index}
                         className={`${isMenuOpen ? 'hidden' : 'lg:flex lg:justify-center hidden'}`}
                     >
-                        <Link
+                        <NavLink
                             key={index}
-                            className=" py-[0.5rem] px-4 ease-linear duration-150 hover:capitalize hover:text-green-400 hover:underline text-nowrap"
                             to={item.link}
+                            className={({ isActive }) =>
+                                `py-[0.5rem] px-4 ease-linear duration-150 hover:capitalize hover:text-green-400 hover:underline text-nowrap ${isActive ? 'text-green-400 underline' : ''
+                                }`
+                            }
                         >
                             {item.name}
-                        </Link>
+                        </NavLink>
                     </section>
                 ))}
                 <div
@@ -92,19 +95,19 @@ const Navbar = () => {
                 {isMenuOpen ? (
                     <div className="flex flex-col text-md gap-2 items-start ">
                         {navItems.map((item, index) => (
-                            <Link
+                            <NavLink
                                 key={index}
                                 className="py-[0.5rem] px-4 ease-linear duration-150 hover:capitalize hover:text-green-400 hover:underline text-nowrap"
                                 to={item.link}
                                 onClick={toggleMenu}
                             >
                                 {item.name}
-                            </Link>
+                            </NavLink>
                         ))}
                         <div className="px-[1.1rem] flex flex-col gap-5 mt-2">
-                            <Link to="/login" className="ease-linear duration-150 hover:capitalize hover:text-green-400 hover:underline text-nowrap hover:cursor-pointer">
+                            <NavLink to="/login" className="ease-linear duration-150 hover:capitalize hover:text-green-400 hover:underline text-nowrap hover:cursor-pointer">
                                 Login
-                            </Link>
+                            </NavLink>
                             <Button className="btn btn-success btn-sm px-4 hover:scale-105 hover:bg-green-400" onClick={
                                 () => navigate('/register')
                             }>
