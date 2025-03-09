@@ -1,10 +1,10 @@
 import { IoSearch } from 'react-icons/io5';
 import AccordionFilter from './components/AccordionFilter';
 import Paginition from '@components/Pagination/Pagination';
-import { useState } from 'react';
 import FilterOption from './components/FilterOption';
 import SearchForm from './components/SearchForm';
 import { IoIosOptions } from "react-icons/io";
+import useModal from '@hooks/useModal';
 
 const countryOptions = [
     { value: 'us', label: 'United States' },
@@ -150,20 +150,23 @@ const jobs = [
 ];
 
 const Jobs = () => {
-    const [showModalSelect, setShowModalSelect] = useState(false);
-    const [showModalFilter, setShowModalFilter] = useState(false);
+
+    const { activeModals, openModal, closeModal } = useModal({
+        select: false,
+        filter: false
+    });
 
     const handleInputClick = () => {
         if (window.innerWidth < 1024) {
-            setShowModalSelect(true);
+            openModal('select');
         }
     };
 
     const handleFilterClick = () => {
         if (window.innerWidth < 1024) {
-            setShowModalFilter(true);
+            openModal('filter');
         }
-    }
+    };
 
     return (
         <div className="flex flex-col pt-6 lg:pt-8 px-4 lg:px-16 gap-10 pb-16">
@@ -247,8 +250,11 @@ const Jobs = () => {
                     </div>
                 </div>
             </div>
-            {showModalSelect && (
-                <FilterOption title={"Edit Your Search"} onClose={() => setShowModalSelect(false)}>
+            {activeModals.select && (
+                <FilterOption
+                    title={"Edit Your Search"}
+                    onClose={() => closeModal('select')}
+                >
                     <SearchForm
                         countryOptions={countryOptions}
                         onInputClick={() => { }}
@@ -258,24 +264,22 @@ const Jobs = () => {
                     />
                 </FilterOption>
             )}
-
-            {showModalFilter && (
-                <>
-                    <FilterOption title={"Filter Your Search"} onClose={() => setShowModalFilter(false)}>
-                        {filters.map((filter) => (
-                            <AccordionFilter
-                                key={filter.id}
-                                title={filter.title}
-                                options={filter.options}
-                            />
-                        ))}
-                        <button
-                            className="fixed bottom-4 w-[92%] bg-green-500 text-white rounded-lg py-2 px-2"
-                        >
-                            Refine Jobs
-                        </button>
-                    </FilterOption>
-                </>
+            {activeModals.filter && (
+                <FilterOption
+                    title={"Filter Your Search"}
+                    onClose={() => closeModal('filter')}
+                >
+                    {filters.map((filter) => (
+                        <AccordionFilter
+                            key={filter.id}
+                            title={filter.title}
+                            options={filter.options}
+                        />
+                    ))}
+                    <button className="fixed bottom-4 w-[92%] bg-green-500 text-white rounded-lg py-2 px-2">
+                        Refine Jobs
+                    </button>
+                </FilterOption>
             )}
         </div>
     );
