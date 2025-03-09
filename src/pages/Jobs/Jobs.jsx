@@ -4,6 +4,7 @@ import Paginition from '@components/Pagination/Pagination';
 import { useState } from 'react';
 import FilterOption from './components/FilterOption';
 import SearchForm from './components/SearchForm';
+import { IoIosOptions } from "react-icons/io";
 
 const countryOptions = [
     { value: 'us', label: 'United States' },
@@ -150,6 +151,7 @@ const jobs = [
 
 const Jobs = () => {
     const [showModalSelect, setShowModalSelect] = useState(false);
+    const [showModalFilter, setShowModalFilter] = useState(false);
 
     const handleInputClick = () => {
         if (window.innerWidth < 1024) {
@@ -157,9 +159,15 @@ const Jobs = () => {
         }
     };
 
+    const handleFilterClick = () => {
+        if (window.innerWidth < 1024) {
+            setShowModalFilter(true);
+        }
+    }
+
     return (
         <div className="flex flex-col pt-6 lg:pt-8 px-4 lg:px-16 gap-10 pb-16">
-            <div className="lg:hidden">
+            <div className="lg:hidden flex flex-col gap-4">
                 <div className="relative w-full">
                     <IoSearch
                         color="#82FD6E"
@@ -174,8 +182,20 @@ const Jobs = () => {
                         onClick={handleInputClick}
                     />
                 </div>
-            </div>
+                <div className="relative w-full">
+                    <IoIosOptions
+                        color="#000000"
+                        className="absolute left-[42%] top-[49%] transform -translate-y-1/2 w-5 h-5 "
+                    />
+                    <div
+                        className="border border-green-300 py-1 rounded-lg focus:outline-green-400 pl-[50%] pr-4 w-full bg-gray-50"
+                        onClick={handleFilterClick}
+                    >
+                        Filter
+                    </div>
 
+                </div>
+            </div>
             <div className="hidden lg:block">
                 <SearchForm
                     countryOptions={countryOptions}
@@ -187,8 +207,8 @@ const Jobs = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-2">
-                <div className="border-2 rounded-lg md:col-span-4">
-                    <div className=" md:col-span-3 overflow-y-scroll max-h-screen">
+                <div className="hidden lg:block border-2 rounded-lg md:col-span-4">
+                    <div className="hidden lg:block md:col-span-3 overflow-y-scroll max-h-screen ">
                         {filters.map((filter) => (
                             <AccordionFilter
                                 key={filter.id}
@@ -228,7 +248,7 @@ const Jobs = () => {
                 </div>
             </div>
             {showModalSelect && (
-                <FilterOption onClose={() => setShowModalSelect(false)}>
+                <FilterOption title={"Edit Your Search"} onClose={() => setShowModalSelect(false)}>
                     <SearchForm
                         countryOptions={countryOptions}
                         onInputClick={() => { }}
@@ -237,6 +257,25 @@ const Jobs = () => {
                         buttonLabel="Search"
                     />
                 </FilterOption>
+            )}
+
+            {showModalFilter && (
+                <>
+                    <FilterOption title={"Filter Your Search"} onClose={() => setShowModalFilter(false)}>
+                        {filters.map((filter) => (
+                            <AccordionFilter
+                                key={filter.id}
+                                title={filter.title}
+                                options={filter.options}
+                            />
+                        ))}
+                        <button
+                            className="fixed bottom-4 w-[92%] bg-green-500 text-white rounded-lg py-2 px-2"
+                        >
+                            Refine Jobs
+                        </button>
+                    </FilterOption>
+                </>
             )}
         </div>
     );
